@@ -6,11 +6,8 @@ function App() {
   return (
     <>
 
-    <Header
-      NombrePagina="Pagina Web"
-      A
-    />
-    <Footer/>
+    <NavBar />
+    <NavBar/>
 
     </>
   );
