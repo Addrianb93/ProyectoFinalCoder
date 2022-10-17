@@ -1,10 +1,12 @@
 import React from 'react';
+import NavBar from './components/NavBar';
 
-function Header(Titulo) {
+function Header() {
   return (
-      <header className='fondo'>
-        <p>Encabezado</p>
-      </header>
+    <header className='Fondo'>
+        <h1 className='nombrePagina'>AdrianReparacionPc</h1>
+        <NavBar />
+    </header>
   );
 }
 
