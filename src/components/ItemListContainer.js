@@ -1,10 +1,10 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
-function ItemListContainer() {
+function ItemListContainer(props) {
   return (
     <Container>
-        <p>componentes</p>
+        {props.Contenido}
     </Container>
   );
 }
