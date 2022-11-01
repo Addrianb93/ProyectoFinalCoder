@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
-function Item({items}) {
+function Item({estado}) {
 
   return (
     <Container>

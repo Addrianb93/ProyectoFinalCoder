@@ -14,9 +14,9 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Link className='nav-link' to="./category/ford">Ford</Link>
-            <Link className='nav-link' to="./category/chevrolet">Chevrolet</Link>
-            <Link className='nav-link' to="./category/peugeot">Peugeot</Link>
+            <Link className='nav-link' to="/category/ford">Ford</Link>
+            <Link className='nav-link' to="/category/chevrolet">Chevrolet</Link>
+            <Link className='nav-link' to="/category/peugeot">Peugeot</Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget />
