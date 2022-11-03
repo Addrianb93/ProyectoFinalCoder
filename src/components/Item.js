@@ -1,12 +1,19 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
-function Item({estado}) {
-
+function Item({item}) {
   return (
-    <Container>
-      <h1>Itemlist</h1>
-    </Container>
+            <Col md={3} key={item.id}>
+              <Card className='itemVehiculos' >
+                <Card.Body>
+                  <Card.Title>{item.nombre}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">{item.categoria}</Card.Subtitle>
+                  <Link className='botonVehiculos' variant="primary botonCarrito" to={"/item/"+item.nombre} >Ver Detalles</Link>
+                </Card.Body>
+              </Card>
+            </Col>
   );
 }
 

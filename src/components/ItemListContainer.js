@@ -1,44 +1,39 @@
 import React from 'react';
 import { useEffect , useState} from 'react';
-
 import Container from 'react-bootstrap/Container';
-import Item from './Item';
+import ItemList from './ItemList';
+import { getVehiculos , getVehiculosOrd } from './utils';
 import { useParams } from 'react-router-dom';
-
-let vehiculos = [
-    {id:'ford', nombre: "Focus"}, 
-    {id:'ford', nombre: "Ranger"}, 
-    {id:'peugeot', nombre: "208"}, 
-    {id:'peugeot', nombre: "307"}, 
-    {id:'chevrolet', nombre: "Astra"}
-];
-
 
 function ItemListContainer() {
 
-  const [estado,setEstado] = useState([]);
+  const [items,setItem] = useState([]);
   const { id } = useParams();
 
   useEffect(()=>{
-    let MostrarVehiculos = new Promise((res)=>{
-      setTimeout(()=>{
-          res(vehiculos)
-      },2000)
-  })
 
-
-  MostrarVehiculos
-  .then((respuesta)=>{
-    setEstado(respuesta);
-  })
-  .catch((error)=>{
-    setEstado(error);
-  })
+    if(id) {
+      getVehiculosOrd( id )
+      .then((respuesta)=>{
+        setItem(respuesta);
+      })
+      .catch((error)=>{
+        setItem(error);
+      })
+    }else{
+      getVehiculos()
+      .then((respuesta)=>{
+        setItem(respuesta);
+      })
+      .catch((error)=>{
+        setItem(error);
+      })
+    }
 }, [ id ]);
 
   return (
     <Container>
-     { estado.length == 0 ? <h1>Cargando...</h1> : <Item estado={estado} /> }
+     { items.length === 0 ? <h1>Cargando...</h1> : <ItemList items={ items } /> }
     </Container>
   );
 }
