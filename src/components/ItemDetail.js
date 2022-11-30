@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import ItemCount from './ItemCount';
 
+import { contexto } from '../ArchivoProvider';
+
+
 function ItemDetail({detail}) {
+
+  const valorContexto = useContext( contexto );
+
+  const handleOnAdd = (cantidad) => {
+     valorContexto.setTotal(cantidad);
+  }
+
+
+
   return (
 
     detail.map((details) =>{
@@ -16,7 +28,8 @@ function ItemDetail({detail}) {
                         <Card.Text>
                           {details.descripcion}
                         </Card.Text>
-                        <ItemCount/>
+                        <ItemCount handleOnAdd={handleOnAdd} />
+                        
                       </Card.Body>
                     </Card>
                   </Col>
